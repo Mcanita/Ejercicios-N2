@@ -20,16 +20,13 @@ namespace Excepciones_Finally_Throw
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            int a, b, r;
+            int resultado;
 
             try
             {
-                a = int.Parse(txtPrimero.Text);
-                b = int.Parse(txtSegundo);
-                r = a + b;
-
-                lblResultado.Text = "= " + r;
-
+                resultado = calcular();
+                lblResultado.Text = "= " + resultado;
+              
             }
             catch (Exception ex)
             {
@@ -39,6 +36,23 @@ namespace Excepciones_Finally_Throw
             {
                 //instrucciones
                 //operación sensible
+            }
+        }
+
+       private int calcular()
+        {
+            int a, b, r;
+            try
+            {
+                a = int.Parse(txtPrimero.Text);
+                b = int.Parse(txtSegundo.Text);
+                r = a + b;
+                return r;
+            }
+            catch (Exception ex)
+            {
+
+                throw;
             }
         }
     }
